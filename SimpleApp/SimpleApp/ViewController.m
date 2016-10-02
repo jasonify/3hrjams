@@ -36,7 +36,10 @@
 
 - (void) someMethod{
     // NSLog(@"changing bg");
-    self.view.backgroundColor = [UIColor blueColor];
+   // self.view.backgroundColor = [UIColor blueColor];
+    
+
+    
 }
 
 
@@ -116,7 +119,11 @@
 - (IBAction)tapSayHi:(id)sender {
     
     NSLog(@"Hello");
-    
+    UILabel *theLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 30.0f)];
+    //self.cityLabel = theLabel;
+    theLabel.text = @"Hello";
+    theLabel.center = self.hiButton.center;
+    [self.view addSubview:theLabel];
     
 }
 
