@@ -96,7 +96,7 @@
 
         }];
         
-        if(self.hiButton.center.y + 20 > self.view.frame.size.height/2){
+        if(self.hiButton.center.y + 20 > self.view.frame.size.height){
             NSLog(@"LARGER!");
             self.hiButton.center = CGPointMake(self.hiButton.center.x, 0);
         }
