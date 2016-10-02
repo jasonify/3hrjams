@@ -46,27 +46,13 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
-    
     CGPoint location = [touch locationInView:self.view];
-    
-    /*if (location.x >= img.x && location.x <= img.x && location.y >= img.y && location.y <= img.y) {
-        // your code here...
-    }*/
-    
-    /*
-    CGRect frame = self.frame;
-    frame.origin.x = location.x;
-    self.lillabel.frame = frame;
-    
-     */
-   
-    
- //   CGPoint location = [[touches anyObject] locationInView:self.view];
-    //CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
     CGRect fingerRect = CGRectMake(location.x - 5, location.y - 5, 10, 10);
     
     for(UIView  *view in self.view.subviews){
+        
         CGRect subviewFrame = view.frame;
+        
         if(CGRectIntersectsRect(fingerRect, subviewFrame)){
             NSLog(@"Intersected with view %@", view);
             view.center = CGPointMake(location.x, location.y);
@@ -75,54 +61,33 @@
         
     }
     
-    
-    /*for(UIView *view in self.view.subviews){
-        CGRect subviewFrame = view.frame;
-        
-        if(CGRectIntersectsRect(fingerRect, subviewFrame)){
-            //we found the finally touched view
-            NSLog(@"Yeah !, i found it %@",view);
-            view.center = CGPointMake(location.x, location.y);
 
-        }
-        
-    }*/
-    
-    //self.lillabel.frame.origin.y = location.y;
     
     NSLog(@"x: %f", location.x);
     NSLog(@"x: %f", location.y);
 
-    
 }
 
 
 - (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
 {
     
+    if(self.selectedView != nil){
+        for(UIView *view in self.view.subviews){
+            if(view != self.selectedView){
+                CGRect childFrame = view.frame;
+                if(CGRectIntersectsRect(childFrame, self.selectedView.frame)){
+                    NSLog(@"OVERLAP OVERLAP OVERLAP");
+                }
+            }
+        }
+    }
+    
     self.selectedView = nil;
-    //CGPoint location = [[touches anyObject] locationInView:self.view];
 
 }
 
 
-/*
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    CGPoint location = [[touches anyObject] locationInView:self.view];
-    CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
-    
-    for(UIView *view in self.view.subviews){
-        CGRect subviewFrame = view.frame;
-        
-        if(CGRectIntersectsRect(fingerRect, subviewFrame)){
-            //we found the finally touched view
-            NSLog(@"Yeah !, i found it %@",view);
-        }
-        
-    }
-    
-}*/
 
 
 
