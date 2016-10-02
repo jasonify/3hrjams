@@ -52,7 +52,7 @@
         if(r > 50){
             view.text = @"GOOD";
         } else{
-            //view.text = @"Evil";
+            view.text = @"Evil";
            // view.text = [NSString stringWithFormat:@"EVIL: %i", r];
         }
         
@@ -143,9 +143,14 @@
                 CGRect childFrame = view.frame;
                 if(CGRectIntersectsRect(childFrame, self.selectedView.frame)){
                     NSLog(@"OVERLAP OVERLAP OVERLAP");
-                    
-                    view.backgroundColor = [UIColor redColor];
-
+                    if([view isKindOfClass:[UILabel class]]){
+                        UILabel *v = (UILabel *)view;
+                        if([v.text isEqualToString:  @"GOOD"]){
+                        view.backgroundColor = [UIColor greenColor];
+                        } else{
+                        view.backgroundColor = [UIColor redColor];
+                        }
+                    }
                 }
             }
         }
