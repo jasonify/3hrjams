@@ -38,6 +38,7 @@
                     </view>
                     <connections>
                         <outlet property="hiButton" destination="Rhv-LU-fBe" id="jrT-4y-0p8"/>
+                        <outlet property="lillabel" destination="7OZ-67-lOF" id="1cO-ln-cEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

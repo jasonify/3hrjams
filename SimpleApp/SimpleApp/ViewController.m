@@ -41,8 +41,17 @@
     /*if (location.x >= img.x && location.x <= img.x && location.y >= img.y && location.y <= img.y) {
         // your code here...
     }*/
-    NSLog(@"x: %f", location.x);
     
+    /*
+    CGRect frame = self.frame;
+    frame.origin.x = location.x;
+    self.lillabel.frame = frame;
+    
+     */
+    self.lillabel.center = CGPointMake(location.x, location.y);
+    //self.lillabel.frame.origin.y = location.y;
+    
+    NSLog(@"x: %f", location.x);
     NSLog(@"x: %f", location.y);
 
 }
