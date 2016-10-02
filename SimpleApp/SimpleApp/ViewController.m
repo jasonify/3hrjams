@@ -67,6 +67,11 @@
     }
     
 
+    if(self.selectedView == nil){
+        [UIView animateWithDuration:0.5f animations:^{
+            self.hiButton.frame = CGRectOffset(self.hiButton.frame, 0, 250);
+        }];
+    }
     
     NSLog(@"x: %f", location.x);
     NSLog(@"x: %f", location.y);
@@ -101,6 +106,8 @@
 - (IBAction)tapSayHi:(id)sender {
     
     NSLog(@"Hello");
+    
+    
 }
 
 @end
