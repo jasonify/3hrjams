@@ -83,6 +83,8 @@
                 CGRect childFrame = view.frame;
                 if(CGRectIntersectsRect(childFrame, self.selectedView.frame)){
                     NSLog(@"OVERLAP OVERLAP OVERLAP");
+                    view.backgroundColor = [UIColor redColor];
+
                 }
             }
         }
