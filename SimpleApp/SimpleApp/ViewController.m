@@ -66,25 +66,48 @@
         if(CGRectIntersectsRect(fingerRect, subviewFrame)){
             NSLog(@"Intersected with view %@", view);
             view.center = CGPointMake(location.x, location.y);
-            self.selectedView = view;
-            // http://stackoverflow.com/questions/4631878/how-to-set-iphone-ui-view-z-index
-            /// import quartz and do theView.layer.zPosition = 1;
+            if(self.selectedView != nil){
+                NSLog(@"view.layer.zPosition %f", view.layer.zPosition);
+                NSLog(@"selectedView %f", self.selectedView.layer.zPosition);
+                
+
+            } else{
+                self.selectedView = view;
+            }
+                // http://stackoverflow.com/questions/4631878/how-to-set-iphone-ui-view-z-index
+                /// import quartz and do theView.layer.zPosition = 1;
             
-            [self.view bringSubviewToFront:view];
+                
             
         }
         
     }
     
+        
 
     if(self.selectedView == nil){
+        int jumpCount = 150;
+        NSLog(@"self.hiButton.center.x = %f", self.hiButton.center.x);
+        NSLog(@"height = %f", self.view.frame.size.height/2);
+       
         [UIView animateWithDuration:0.5f animations:^{
-            self.hiButton.frame = CGRectOffset(self.hiButton.frame, 0, 250);
+            //self.hiButton.frame = CGRectOffset(self.hiButton.frame, 0, jumpCount);
+            self.hiButton.center = CGPointMake(self.hiButton.center.x, self.hiButton.center.y + jumpCount);
+
         }];
+        
+        if(self.hiButton.center.y + 20 > self.view.frame.size.height/2){
+            NSLog(@"LARGER!");
+            self.hiButton.center = CGPointMake(self.hiButton.center.x, 0);
+        }
+    }else {
+        //[self.view bringSubviewToFront:self.selectedView];
+        
+        self.selectedView.layer.zPosition = 1;
     }
     
-    NSLog(@"x: %f", location.x);
-    NSLog(@"x: %f", location.y);
+    //NSLog(@"x: %f", location.x);
+    //NSLog(@"x: %f", location.y);
 
 }
 
@@ -103,6 +126,7 @@
                 }
             }
         }
+        self.selectedView.layer.zPosition = 0;
     }
     
     self.selectedView = nil;
