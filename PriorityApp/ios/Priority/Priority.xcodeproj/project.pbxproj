@@ -16,6 +16,7 @@
 		960C8C671DA1A3CC00FEAB8F /* PriorityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 960C8C661DA1A3CC00FEAB8F /* PriorityTests.m */; };
 		960C8C721DA1A3CC00FEAB8F /* PriorityUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 960C8C711DA1A3CC00FEAB8F /* PriorityUITests.m */; };
 		960C8C811DA1A81900FEAB8F /* ListOfThings.m in Sources */ = {isa = PBXBuildFile; fileRef = 960C8C801DA1A81900FEAB8F /* ListOfThings.m */; };
+		960C8C841DA1B49D00FEAB8F /* AddToArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 960C8C831DA1B49D00FEAB8F /* AddToArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		960C8C731DA1A3CC00FEAB8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960C8C7F1DA1A81900FEAB8F /* ListOfThings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfThings.h; sourceTree = "<group>"; };
 		960C8C801DA1A81900FEAB8F /* ListOfThings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfThings.m; sourceTree = "<group>"; };
+		960C8C821DA1B49D00FEAB8F /* AddToArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToArray.h; sourceTree = "<group>"; };
+		960C8C831DA1B49D00FEAB8F /* AddToArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				960C8C521DA1A3CC00FEAB8F /* ViewController.h */,
 				960C8C531DA1A3CC00FEAB8F /* ViewController.m */,
 				960C8C551DA1A3CC00FEAB8F /* Main.storyboard */,
+				960C8C821DA1B49D00FEAB8F /* AddToArray.h */,
+				960C8C831DA1B49D00FEAB8F /* AddToArray.m */,
 				960C8C7F1DA1A81900FEAB8F /* ListOfThings.h */,
 				960C8C801DA1A81900FEAB8F /* ListOfThings.m */,
 				960C8C581DA1A3CC00FEAB8F /* Assets.xcassets */,
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960C8C841DA1B49D00FEAB8F /* AddToArray.m in Sources */,
 				960C8C541DA1A3CC00FEAB8F /* ViewController.m in Sources */,
 				960C8C511DA1A3CC00FEAB8F /* AppDelegate.m in Sources */,
 				960C8C4E1DA1A3CC00FEAB8F /* main.m in Sources */,
