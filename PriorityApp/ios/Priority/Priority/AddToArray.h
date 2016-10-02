@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UITextField *entryField;
-@property (weak, nonatomic) NSArray  * items;
+@property (strong, nonatomic) NSMutableArray  * items;
 
 
 @end

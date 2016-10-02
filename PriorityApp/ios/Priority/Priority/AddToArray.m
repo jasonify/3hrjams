@@ -20,10 +20,17 @@
     NSLog(@"Add To Array View");
     [self initItems];
     self.countLabel.text = [NSString stringWithFormat: @"%d", self.items.count];
+    
 }
 
 - (void) initItems {
-    self.items = [NSMutableArray arrayWithArray:@[@"one", @"two"]];
+    //self.items = [NSMutableArray arrayWithArray:@[@"one", @"two"]];
+
+    self.items = [[NSMutableArray alloc] init];
+    
+    [self.items addObject: @"cool"];
+    [self.items addObject: @"two"];
+
 }
 
 - (void)didReceiveMemoryWarning {
