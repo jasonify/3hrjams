@@ -30,6 +30,8 @@
     
     [self.items addObject: @"cool"];
     [self.items addObject: @"two"];
+    [self.items addObject: @"two"];
+
 
 }
 
@@ -38,6 +40,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)add:(id)sender {
+    [self.items addObject: [self.entryField text]];
+    self.countLabel.text = [NSString stringWithFormat: @"%d", self.items.count];
+
 }
 
 /*
