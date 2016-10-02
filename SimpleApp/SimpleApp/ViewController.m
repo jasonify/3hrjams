@@ -48,13 +48,51 @@
     self.lillabel.frame = frame;
     
      */
+   
+    
+ //   CGPoint location = [[touches anyObject] locationInView:self.view];
+    CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
+    
+    for(UIView *view in self.view.subviews){
+        CGRect subviewFrame = view.frame;
+        
+        if(CGRectIntersectsRect(fingerRect, subviewFrame)){
+            //we found the finally touched view
+           
+           
+                NSLog(@"Yeah !, i found it %@",view);
+        
+        }
+        
+    }
+    
     self.lillabel.center = CGPointMake(location.x, location.y);
     //self.lillabel.frame.origin.y = location.y;
     
     NSLog(@"x: %f", location.x);
     NSLog(@"x: %f", location.y);
 
+    
 }
+
+/*
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    CGPoint location = [[touches anyObject] locationInView:self.view];
+    CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
+    
+    for(UIView *view in self.view.subviews){
+        CGRect subviewFrame = view.frame;
+        
+        if(CGRectIntersectsRect(fingerRect, subviewFrame)){
+            //we found the finally touched view
+            NSLog(@"Yeah !, i found it %@",view);
+        }
+        
+    }
+    
+}*/
+
 
 
 - (IBAction)tapSayHi:(id)sender {
