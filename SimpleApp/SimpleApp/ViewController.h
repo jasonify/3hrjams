@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lillabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *hiButton;
+@property (weak, nonatomic)  UIView *selectedView;
+
 
 @end
 

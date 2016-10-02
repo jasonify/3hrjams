@@ -33,6 +33,17 @@
 }
 
 
+- (void) touchesMoved: (NSSet * ) touches withEvent: (UIEvent *) event   {
+    
+    if(self.selectedView != nil){
+        UITouch *touch = [[event allTouches] anyObject];
+
+        CGPoint location = [touch locationInView:self.view];
+        self.selectedView.center = CGPointMake(location.x, location.y);
+
+    }
+}
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     
@@ -51,22 +62,32 @@
    
     
  //   CGPoint location = [[touches anyObject] locationInView:self.view];
-    CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
+    //CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
+    CGRect fingerRect = CGRectMake(location.x - 5, location.y - 5, 10, 10);
     
-    for(UIView *view in self.view.subviews){
+    for(UIView  *view in self.view.subviews){
         CGRect subviewFrame = view.frame;
-        
         if(CGRectIntersectsRect(fingerRect, subviewFrame)){
-            //we found the finally touched view
-           
-           
-                NSLog(@"Yeah !, i found it %@",view);
-        
+            NSLog(@"Intersected with view %@", view);
+            view.center = CGPointMake(location.x, location.y);
+            self.selectedView = view;
         }
         
     }
     
-    self.lillabel.center = CGPointMake(location.x, location.y);
+    
+    /*for(UIView *view in self.view.subviews){
+        CGRect subviewFrame = view.frame;
+        
+        if(CGRectIntersectsRect(fingerRect, subviewFrame)){
+            //we found the finally touched view
+            NSLog(@"Yeah !, i found it %@",view);
+            view.center = CGPointMake(location.x, location.y);
+
+        }
+        
+    }*/
+    
     //self.lillabel.frame.origin.y = location.y;
     
     NSLog(@"x: %f", location.x);
@@ -74,6 +95,16 @@
 
     
 }
+
+
+- (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
+{
+    
+    self.selectedView = nil;
+    //CGPoint location = [[touches anyObject] locationInView:self.view];
+
+}
+
 
 /*
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
