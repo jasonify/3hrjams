@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#include <stdlib.h>
+
 
 @interface ViewController ()
 
@@ -24,7 +26,7 @@
     NSLog(@"Starting..");
     NSLog(@"Starting..");
 
-    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
 
 }
 
@@ -38,8 +40,24 @@
     // NSLog(@"changing bg");
    // self.view.backgroundColor = [UIColor blueColor];
     
-
+    // Random number between 01
+    // int r = arc4random_uniform(74)
+    // NSLog(@"%i", r);
     
+    for(UILabel *view in self.view.subviews){
+        if([view isKindOfClass:[UILabel class]]){
+            
+        
+        int r = arc4random_uniform(100);
+        if(r > 50){
+            view.text = @"GOOD";
+        } else{
+            //view.text = @"Evil";
+           // view.text = [NSString stringWithFormat:@"EVIL: %i", r];
+        }
+        
+    }
+    }
 }
 
 
@@ -52,6 +70,10 @@
         self.selectedView.center = CGPointMake(location.x, location.y);
 
     }
+    
+    
+    
+    
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -96,7 +118,7 @@
 
         }];
         
-        if(self.hiButton.center.y + 20 > self.view.frame.size.height){
+        if(self.hiButton.center.y + 20 > self.view.frame.size.height ){
             NSLog(@"LARGER!");
             self.hiButton.center = CGPointMake(self.hiButton.center.x, 0);
         }
@@ -121,6 +143,7 @@
                 CGRect childFrame = view.frame;
                 if(CGRectIntersectsRect(childFrame, self.selectedView.frame)){
                     NSLog(@"OVERLAP OVERLAP OVERLAP");
+                    
                     view.backgroundColor = [UIColor redColor];
 
                 }
