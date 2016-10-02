@@ -29,7 +29,7 @@
     //self.items = [NSMutableArray arrayWithArray:@[@"one", @"two"]];
 
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray * _itemsX = [userDefaults objectForKey:@"items"];
+    NSMutableArray * _itemsX = [userDefaults objectForKey:@"items2"];
     
     if(_itemsX == nil){
     self.items = [[NSMutableArray alloc] init];
@@ -41,7 +41,7 @@
         self.items = _itemsX;
     }
     
-   // self.lastLabel = [self.items ]
+    self.lastLabel.text = self.items[self.items.count -1];
 
 
 }
@@ -54,9 +54,11 @@
     [self.items addObject: [self.entryField text]];
     [self.entryField setText:@""];
     self.countLabel.text = [NSString stringWithFormat: @"%d", self.items.count];
+    
+    
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject: self.items forKey:@"items"];
-
+    [userDefaults setObject: self.items forKey:@"items2"];
+    [userDefaults synchronize];
 
 }
 
