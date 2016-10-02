@@ -25,6 +25,7 @@
     NSLog(@"Starting..");
     NSLog(@"Starting..");
     NSLog(@"Starting..");
+    self.points =0;
 
     [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
 
@@ -147,8 +148,10 @@
                         UILabel *v = (UILabel *)view;
                         if([v.text isEqualToString:  @"GOOD"]){
                         view.backgroundColor = [UIColor greenColor];
+                            self.points++;
                         } else{
                         view.backgroundColor = [UIColor redColor];
+                            self.points--;
                         }
                     }
                 }
@@ -157,6 +160,8 @@
         self.selectedView.layer.zPosition = 0;
     }
     
+    [self.hiButton setTitle:[NSString stringWithFormat:@"POINTS: %i", self.points] forState:UIControlStateNormal];
+
     self.selectedView = nil;
 
 }

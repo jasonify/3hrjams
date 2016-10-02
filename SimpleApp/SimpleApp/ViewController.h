@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *hiButton;
 @property (weak, nonatomic)  UIView *selectedView;
-
+@property (nonatomic, assign) int points;
 
 @end
 
