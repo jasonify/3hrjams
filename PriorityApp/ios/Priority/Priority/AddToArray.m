@@ -41,6 +41,7 @@
 }
 - (IBAction)add:(id)sender {
     [self.items addObject: [self.entryField text]];
+    [self.entryField setText:@""];
     self.countLabel.text = [NSString stringWithFormat: @"%d", self.items.count];
 
 }
