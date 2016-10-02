@@ -24,12 +24,19 @@
     NSLog(@"Starting..");
     NSLog(@"Starting..");
 
+    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
+
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) someMethod{
+    // NSLog(@"changing bg");
+    self.view.backgroundColor = [UIColor blueColor];
 }
 
 
@@ -98,6 +105,9 @@
     self.selectedView = nil;
 
 }
+
+
+
 
 
 
