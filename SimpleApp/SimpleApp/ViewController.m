@@ -57,6 +57,11 @@
             NSLog(@"Intersected with view %@", view);
             view.center = CGPointMake(location.x, location.y);
             self.selectedView = view;
+            // http://stackoverflow.com/questions/4631878/how-to-set-iphone-ui-view-z-index
+            /// import quartz and do theView.layer.zPosition = 1;
+            
+            [self.view bringSubviewToFront:view];
+            
         }
         
     }
