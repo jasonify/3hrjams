@@ -29,7 +29,7 @@
     //self.items = [NSMutableArray arrayWithArray:@[@"one", @"two"]];
 
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray * _itemsX = [userDefaults objectForKey:@"items2"];
+    NSArray * _itemsX = [userDefaults objectForKey:@"items2"];
     
     if(_itemsX == nil){
     self.items = [[NSMutableArray alloc] init];
@@ -38,7 +38,9 @@
     [self.items addObject: @"two"];
     [self.items addObject: @"two"];
     } else {
-        self.items = _itemsX;
+        self.items = [_itemsX mutableCopy] ; // autorelease working?
+      //  [self.items addObject: @"lastalways"];
+
     }
     
     self.lastLabel.text = self.items[self.items.count -1];
@@ -51,14 +53,18 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)add:(id)sender {
+    NSLog(@"1---");
     [self.items addObject: [self.entryField text]];
     [self.entryField setText:@""];
     self.countLabel.text = [NSString stringWithFormat: @"%d", self.items.count];
-    
+    NSLog(@"2---");
+
     
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject: self.items forKey:@"items2"];
     [userDefaults synchronize];
+    NSLog(@"3---");
+
 
 }
 
