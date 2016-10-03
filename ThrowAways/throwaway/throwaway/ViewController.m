@@ -42,7 +42,8 @@
     static NSString * idOfCell = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:idOfCell forIndexPath: indexPath];
     
-    cell.textLabel.text = @"COOL ";
+    cell.textLabel.text = [NSString stringWithFormat: @"COOL %d", (int) indexPath.row];
+    
     return cell;
 }
 
