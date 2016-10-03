@@ -47,7 +47,9 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"selected: %d", (int) indexPath.row);
+}
 
 
 @end
