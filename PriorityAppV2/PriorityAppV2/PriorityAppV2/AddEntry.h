@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddEntry.h
 //  PriorityAppV2
 //
 //  Created by jason on 10/4/16.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface AddEntry : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
 
 @property (strong, nonatomic) NSMutableArray * items;
 
-@end
 
+@end
