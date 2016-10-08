@@ -33,6 +33,7 @@
     [userDefaults setObject: self.items forKey:@"iems"];
     [userDefaults synchronize];
     
+    self.priorityTextField.text = @"";
     NSLog(@"%@", text);
 }
 

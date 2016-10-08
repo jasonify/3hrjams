@@ -21,15 +21,33 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    NSLog(@"Cool");
+    [self initItems];
+
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+}
+
 -(void) initItems {
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray * itemsStored = [userDefaults objectForKey:@"iems"];
+    
+    // 
     if(itemsStored == nil){
+        NSLog(@"NIL!");
         self.items = [[NSMutableArray alloc] init];
         
     } else {
+        
+        NSLog(@"setting items :) ");
+        NSLog(@"ITEMS count: %d", self.items.count);
         self.items = [itemsStored mutableCopy];
+        NSLog(@"ITEMS count: %d", itemsStored.count);
     }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -44,7 +62,7 @@
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier: @"cell" forIndexPath: indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat: @"row =%@", self.items[ indexPath.row] ];
+    cell.textLabel.text = [NSString stringWithFormat: @"row =%@", self.items[ self.items.count - (indexPath.row+1)] ];
     
     return cell;
 }
